@@ -1,0 +1,339 @@
+﻿@model IEnumerable<Starkk.Models.SiparisKalem>
+@{
+    ViewBag.Title = "Detay";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPageAdmin.cshtml";
+}
+
+
+<section class="content">
+    <div class="box box-primary">
+        <div class="box-body" style="">
+
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="box">
+                        <div class="box-header">
+                            <h2 class="box-title">Yeni Sipariş</h2>
+
+                        </div>
+                        <div class="box-body">
+                            <table id="example1" class="table table-bordered table-striped">
+                                <thead>
+                                    <tr>
+                                        <th> Ad Soyad</th>
+                                        <th> Tarih </th>
+                                        <th> Ürün Adı </th>
+                                        <th> Adres </th>
+                                        <th> Tc Kimlik No </th>
+                                        <th> Telefon </th>
+                                        <th> Adet </th>
+                                        <th> Toplam Tutar </th>
+                                        <th> Fatura</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+
+                                            <td>
+
+                                                @Html.DisplayFor(modelItem => item.Sipari.Ad)   @Html.DisplayFor(modelItem => item.Sipari.Soyad)
+
+                                            </td>
+                                            <td>
+
+                                                @Html.DisplayFor(modelItem => item.Sipari.Tarih)
+
+                                            </td>
+                                            <td>
+
+                                                @Html.DisplayFor(modelItem => item.Urunler.UrunAdi)
+
+                                            </td>
+                                            <td>
+
+                                                @Html.DisplayFor(modelItem => item.Sipari.Adres)
+
+                                            </td>
+                                            <td>
+
+                                                @Html.DisplayFor(modelItem => item.Sipari.TcKimlikNo)
+
+                                            </td>
+                                            <td>
+
+                                                @Html.DisplayFor(modelItem => item.Sipari.Telefon)
+
+                                            </td>
+                                            <td>
+
+                                                @Html.DisplayFor(modelItem => item.Adet)
+
+                                            </td>
+                                            <td>
+
+                                                @Html.DisplayFor(modelItem => item.ToplamTutar)
+
+                                            </td>
+                                            <td>
+
+                                               <a href="@Url.Action("FaturaOlustur","Siparis",new { @id=item.RefSiparisID})">Fatura Oluştur</a>
+
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+
+    </div>
+
+
+    <!-- modal başlangıç-->
+
+
+
+    @*<div class="modal fade" id="modal-info" style="display: none;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                @Html.Hidden("Id")
+                @Html.Hidden("SiparisKalem")
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                    <h4 class="modal-title">Fatura</h4>
+                </div>
+                <div class="modal-body">
+
+                    <section class="invoice">
+                        <!-- title row -->
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <h2 class="page-header">
+                                    <i class="fa fa-globe"></i> STARK MSS.
+                                    <small class="pull-right">Tarih: 2/10/2018</small>
+                                </h2>
+                            </div>
+                            <!-- /.col -->
+                        </div>
+                        <!-- info row -->
+                        <div class="row invoice-info">
+                            <div class="col-sm-4 invoice-col">
+                                Satıcı
+                                <address>
+                                    <strong>STARK MSS.</strong><br>
+                                    Bahçelievler Mahallesi, Bahçelievler Caddesi, <br>
+                                    Çimen Apartmanı<br>
+                                    No:25/A Talas/KAYSERİ<br>
+                                    Telefon: (541)  396 4264<br>
+                                    Email: info@starkmss.com
+                                </address>
+                            </div>
+                            <!-- /.col -->
+                            <div class="col-sm-4 invoice-col">
+                                Alıcı
+                                <address>
+                                    <strong>Şamil TÜRKSOY</strong><br>
+                                    Aydınlık evler mahallesi<br>
+                                    Akkent cad.67/19 Milas/MUĞLA<br>
+                                    Telefon: (554) 838 3832<br>
+                                    Email: samilturksoy@gmail.com
+                                </address>
+                            </div>
+                            <!-- /.col -->
+                            <div class="col-sm-4 invoice-col">
+                                <b>Fatura No #007612</b><br>
+                                <br>
+                                <b>Sipariş No:</b> 4F3S8J<br>
+                                <b>Ödeme Tarihi:</b> 2/22/2014<br>
+                                <b>Üye No:</b> 968-34567
+                            </div>
+                            <!-- /.col -->
+                        </div>
+                        <!-- /.row -->
+                        <!-- Table row -->
+                        <div class="row">
+                            <div class="col-xs-12 table-responsive">
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>Adet</th>
+                                            <th>Ürün</th>
+                                            <th>Ürün No#</th>
+                                            <th>Açıklama</th>
+                                            <th>Fiyat</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>Stark X2</td>
+                                            <td>455-981-221</td>
+                                            <td>İşte karşınızda STARK. Daha sessiz toz akarlarının düşmanı ve merkezi süpürge </td>
+                                            <td>64.50 TL</td>
+                                        </tr>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>Stark ST</td>
+                                            <td>247-925-726</td>
+                                            <td>İşte karşınızda STARK. Daha sessiz toz akarlarının düşmanı ve merkezi süpürge </td>
+                                            <td>50.00 TL</td>
+                                        </tr>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>STARK MİNİ</td>
+                                            <td>735-845-642</td>
+                                            <td>İşte karşınızda STARK. Daha sessiz toz akarlarının düşmanı ve merkezi süpürge </td>
+                                            <td>10.70 TL</td>
+                                        </tr>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>9 METRE HORTUM</td>
+                                            <td>422-568-642</td>
+                                            <td>9 Metre hortum </td>
+                                            <td>25.99 TL</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- /.col -->
+                        </div>
+                        <!-- /.row -->
+
+                        <div class="row">
+                            <!-- accepted payments column -->
+                            <div class="col-xs-6">
+                                <p class="lead">Ödeme Yönetimi:</p>
+                                <img src="dist/img/credit/visa.png" alt="Visa">
+                                <img src="dist/img/credit/mastercard.png" alt="Mastercard">
+                                <img src="dist/img/credit/american-express.png" alt="American Express">
+                                <img src="dist/img/credit/paypal2.png" alt="Paypal">
+
+                                <p class="text-muted well well-sm no-shadow" style="margin-top: 10px;">
+                                    Kullanıcı yorumu burada gözükecek örneğin "ürünüm geldiğinde telefonda bilgi verilsin"
+                                </p>
+                            </div>
+                            <!-- /.col -->
+                            <div class="col-xs-6">
+                                <p class="lead">Ödeme Tarihi 2/22/2014</p>
+
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <tr>
+                                            <th style="width:50%">Toplam:</th>
+                                            <td><label id="tutar"></label> TL</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Tax (9.3%)</th>
+                                            <td>10.34 TL</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Kargo:</th>
+                                            <td>5.80 TL</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Genel Toplam:</th>
+                                            <td>265.24 TL</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <!-- /.col -->
+                        </div>
+                        <!-- /.row -->
+                        <!-- this row will not appear when printing -->
+                        <div class="row no-print">
+                            <div class="col-xs-12">
+                                <a href="invoice-print.html" target="_blank" class="btn btn-default"><i class="fa fa-print"></i> Yazdır</a>
+
+                                <button type="button" class="btn btn-primary pull-right" style="margin-right: 5px;">
+                                    <i class="fa fa-download"></i> PDF Dönüştür
+                                </button>
+                            </div>
+                        </div>
+                    </section>
+
+
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Kapat</button>
+                    <button type="button" class="btn btn-primary">Kaydet</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>*@
+
+
+
+
+    <!--modal bitiş-->
+</section>
+<p>
+    @Html.ActionLink("Listeye Geri Dön", "Index")
+</p>
+
+
+
+
+@section scripts{
+
+
+    <script>
+  $(function () {
+    $('#example1').DataTable()
+    $('#example2').DataTable({
+      'paging'      : true,
+      'lengthChange': false,
+      'searching'   : false,
+      'ordering'    : true,
+      'info'        : true,
+      'autoWidth'   : false
+    })
+  })
+    </script>
+    <script>
+         $(document).on("click", ".duzenle2", function (e) {
+
+        var idno = $(this).data('id');
+        $.getJSON('@Url.Action("FaturaOlustur","Siparis")', { Id: idno }, function (data) {
+
+            $('#Id').val(idno);
+            $('#isim').val(data.isim);
+            $('#soyisim').val(data.soyisim);
+            $('#Adres').val(data.Adres);
+            $('#Telefon').val(data.Telefon);
+            $('#Tc').val(data.Tc);
+            $('#SiparisNo').val(data.SiparisNo);
+
+
+            $('#OdemeTarihi').val(data.OdemeTarihi);
+            $('#UyeId').val(data.UyeId);
+            $('#Adet').val(data.Adet);
+            $('#UrunAdi').val(data.UrunAdi);
+            $('#UrunId').val(data.UrunId);
+            $('#Fiyati').val(data.Fiyati);
+            $('#toplam').val(data.toplam);
+            $('#toplam').innerHtml(data.toplam);
+           
+
+
+
+
+        })
+    });
+    </script>
+}
+

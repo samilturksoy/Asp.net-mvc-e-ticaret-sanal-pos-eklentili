@@ -1,0 +1,72 @@
+﻿@model Starkk.Models.Urunler
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPageAdmin.cshtml";
+    var resimlerimiz = ViewBag.Resimler;
+}
+
+<h2>Ürün Detayları</h2>
+
+<div>
+    <h4>Urunler</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.UrunAdi)
+        </dt>
+        @*@Html.HiddenFor(model=>model.Id, htmlAttributes: new { name = "urunId" })*@
+        <dd>
+            @Html.DisplayFor(model => model.UrunAdi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UrunAciklamasi)
+        </dt>
+
+        <dd>
+            @Html.Raw(Model.UrunAciklamasi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Fiyat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fiyat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Kategori.KategoriAdi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Kategori.KategoriAdi)
+        </dd>
+
+
+        @foreach (var item in resimlerimiz)
+        {
+            <dt>
+                Resim
+            </dt>
+            <dd>
+                @{
+                    string imageBase64 = Convert.ToBase64String(item.Resim);
+                    string imageSrc = string.Format("data:image/gif;base64,{0}", imageBase64);
+                    <img src="@imageSrc" class="img-responsive col-md-4" />
+                }
+                <a href="@Url.Action("Deleteimg", "Urunler", new { Id=item.Id})" onclick="return confirm('Silmek istediğinize eminmisiniz?')" class="btn btn-danger" data-id="@item.Id"><i class="fa fa-remove fa-fw"></i></a>
+                |
+            </dd>
+        }
+
+
+
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Düzenle", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Listeye Geri Dön", "Index")
+</p>

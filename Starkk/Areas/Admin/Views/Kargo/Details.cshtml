@@ -1,0 +1,27 @@
+﻿@model Starkk.Models.Kargo
+
+@{
+    ViewBag.Title = "Detay";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPageAdmin.cshtml";
+}
+
+<h2>Kargo Detayı</h2>
+
+<div>
+    <h4>Kargo</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.KargoAdi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KargoAdi)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Düzenle", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Listeye Geri Dön", "Index")
+</p>

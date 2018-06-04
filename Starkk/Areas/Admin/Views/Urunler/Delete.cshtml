@@ -1,0 +1,57 @@
+﻿@model Starkk.Models.Urunler
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPageAdmin.cshtml";
+}
+
+<h2>Kalıcı Olarak Sil</h2>
+
+<h3>Bu ürünü silmek istediğinizden eminmisiniz ?</h3>
+<div>
+    <h4> @Html.DisplayFor(model => model.UrunAdi)</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.UrunAdi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UrunAdi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UrunAciklamasi)
+        </dt>
+
+        <dd>
+            @Html.Raw(Model.UrunAciklamasi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Fiyat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fiyat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Kategori.KategoriAdi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Kategori.KategoriAdi)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Sil" class="btn btn-danger" /> |
+            @Html.ActionLink("Listeye Geri Dön", "Index")
+        </div>
+    }
+</div>

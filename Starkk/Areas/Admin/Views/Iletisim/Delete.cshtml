@@ -1,0 +1,89 @@
+﻿@model Starkk.Models.Iletisim
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPageAdmin.cshtml";
+}
+
+<h2>Kalıcı Olarak Sil</h2>
+
+<h3>Kalııc olarak silinecektir eminmisiniz ?</h3>
+<div>
+    <h4>Iletisim</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Aciklama)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Aciklama)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Adres)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Adres)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Telefon)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Telefon)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Telefon2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Telefon2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Haftaici)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Haftaici)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cumartesi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cumartesi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Pazar)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pazar)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Sil" class="btn btn-danger" /> |
+            @Html.ActionLink("Listeye Geri Dön", "Index")
+        </div>
+    }
+</div>

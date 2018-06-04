@@ -1,0 +1,1177 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="StarkmssModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="ContextKey" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+          <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetRoles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaims">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ClaimType" Type="nvarchar(max)" />
+          <Property Name="ClaimValue" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogins">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserRoles">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="256" />
+          <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+          <Property Name="PasswordHash" Type="nvarchar(max)" />
+          <Property Name="SecurityStamp" Type="nvarchar(max)" />
+          <Property Name="PhoneNumber" Type="nvarchar(max)" />
+          <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="datetime" />
+          <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="BlogKategori">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BlogKategoriAdi" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BlogYazi">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RefBlogKategoriId" Type="int" Nullable="false" />
+          <Property Name="Baslik" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Yazi" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Tarih" Type="datetime" Nullable="false" />
+          <Property Name="Yazar" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="Seo" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Hakkimizda">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Aciklama" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Slogan" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="History">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Aciklama" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Resim" Type="varbinary(max)" Nullable="false" />
+          <Property Name="Tarih" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Iletisim">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Aciklama" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Adres" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Telefon" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Telefon2" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Haftaici" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Cumartesi" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Pazar" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Kargo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KargoAdi" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Kategori">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KategoriAdi" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ResimUrun">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RefUrunId" Type="int" Nullable="false" />
+          <Property Name="Resim" Type="varbinary(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Sepet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RefAspNetUserID" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="RefUrunId" Type="int" Nullable="false" />
+          <Property Name="Adet" Type="int" Nullable="false" />
+          <Property Name="ToplamTutar" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Siparis">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RefAspNetUserID" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Ad" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Soyad" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Adres" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Telefon" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Tarih" Type="datetime" Nullable="false" />
+          <Property Name="TcKimlikNo" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="RefKargoID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SiparisKalem">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RefSiparisID" Type="int" Nullable="false" />
+          <Property Name="RefUrunID" Type="int" Nullable="false" />
+          <Property Name="Adet" Type="int" Nullable="false" />
+          <Property Name="ToplamTutar" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Slider">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Resim" Type="varbinary(max)" Nullable="false" />
+          <Property Name="Sirasi" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Urunler">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RefKategoriId" Type="int" Nullable="false" />
+          <Property Name="UrunAdi" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="UrunAciklamasi" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Fiyat" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Bayi">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AdSoyad" Type="nvarchar(max)" />
+          <Property Name="Email" Type="nvarchar(max)" />
+          <Property Name="SirketAdi" Type="nvarchar(max)" />
+          <Property Name="Telefon" Type="nvarchar(max)" />
+          <Property Name="Aciklama" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Stok">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UrunAdi" Type="nvarchar(max)" />
+          <Property Name="UrunKodu" Type="nvarchar(max)" />
+          <Property Name="Fiyatı" Type="float" />
+          <Property Name="Aciklama" Type="nvarchar(max)" />
+          <Property Name="Adet" Type="int" />
+        </EntityType>
+        <Association Name="FK_BlogYazi_BlogKategori">
+          <End Role="BlogKategori" Type="Self.BlogKategori" Multiplicity="1" />
+          <End Role="BlogYazi" Type="Self.BlogYazi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BlogKategori">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BlogYazi">
+              <PropertyRef Name="RefBlogKategoriId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+          <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetRoles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ResimUrun_Urunler">
+          <End Role="Urunler" Type="Self.Urunler" Multiplicity="1" />
+          <End Role="ResimUrun" Type="Self.ResimUrun" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Urunler">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ResimUrun">
+              <PropertyRef Name="RefUrunId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sepet_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="Sepet" Type="Self.Sepet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Sepet">
+              <PropertyRef Name="RefAspNetUserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sepet_Urunler">
+          <End Role="Urunler" Type="Self.Urunler" Multiplicity="1" />
+          <End Role="Sepet" Type="Self.Sepet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Urunler">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Sepet">
+              <PropertyRef Name="RefUrunId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Siparis_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="Siparis" Type="Self.Siparis" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Siparis">
+              <PropertyRef Name="RefAspNetUserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Siparis_Kargo">
+          <End Role="Kargo" Type="Self.Kargo" Multiplicity="1" />
+          <End Role="Siparis" Type="Self.Siparis" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kargo">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Siparis">
+              <PropertyRef Name="RefKargoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SiparisKalem_Siparis">
+          <End Role="Siparis" Type="Self.Siparis" Multiplicity="1" />
+          <End Role="SiparisKalem" Type="Self.SiparisKalem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Siparis">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SiparisKalem">
+              <PropertyRef Name="RefSiparisID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SiparisKalem_Urunler">
+          <End Role="Urunler" Type="Self.Urunler" Multiplicity="1" />
+          <End Role="SiparisKalem" Type="Self.SiparisKalem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Urunler">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SiparisKalem">
+              <PropertyRef Name="RefUrunID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Urunler_Kategori">
+          <End Role="Kategori" Type="Self.Kategori" Multiplicity="1" />
+          <End Role="Urunler" Type="Self.Urunler" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kategori">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Urunler">
+              <PropertyRef Name="RefKategoriId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="StarkmssModelStoreContainer">
+          <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BlogKategori" EntityType="Self.BlogKategori" Schema="Starkmss_user" store:Type="Tables" />
+          <EntitySet Name="BlogYazi" EntityType="Self.BlogYazi" Schema="Starkmss_user" store:Type="Tables" />
+          <EntitySet Name="Hakkimizda" EntityType="Self.Hakkimizda" Schema="Starkmss_user" store:Type="Tables" />
+          <EntitySet Name="History" EntityType="Self.History" Schema="Starkmss_user" store:Type="Tables" />
+          <EntitySet Name="Iletisim" EntityType="Self.Iletisim" Schema="Starkmss_user" store:Type="Tables" />
+          <EntitySet Name="Kargo" EntityType="Self.Kargo" Schema="Starkmss_user" store:Type="Tables" />
+          <EntitySet Name="Kategori" EntityType="Self.Kategori" Schema="Starkmss_user" store:Type="Tables" />
+          <EntitySet Name="ResimUrun" EntityType="Self.ResimUrun" Schema="Starkmss_user" store:Type="Tables" />
+          <EntitySet Name="Sepet" EntityType="Self.Sepet" Schema="Starkmss_user" store:Type="Tables" />
+          <EntitySet Name="Siparis" EntityType="Self.Siparis" Schema="Starkmss_user" store:Type="Tables" />
+          <EntitySet Name="SiparisKalem" EntityType="Self.SiparisKalem" Schema="Starkmss_user" store:Type="Tables" />
+          <EntitySet Name="Slider" EntityType="Self.Slider" Schema="Starkmss_user" store:Type="Tables" />
+          <EntitySet Name="Urunler" EntityType="Self.Urunler" Schema="Starkmss_user" store:Type="Tables" />
+          <EntitySet Name="Bayi" EntityType="Self.Bayi" Schema="Starkmss_userr" store:Type="Tables" />
+          <EntitySet Name="Stok" EntityType="Self.Stok" Schema="Starkmss_userr" store:Type="Tables" />
+          <AssociationSet Name="FK_BlogYazi_BlogKategori" Association="Self.FK_BlogYazi_BlogKategori">
+            <End Role="BlogKategori" EntitySet="BlogKategori" />
+            <End Role="BlogYazi" EntitySet="BlogYazi" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ResimUrun_Urunler" Association="Self.FK_ResimUrun_Urunler">
+            <End Role="Urunler" EntitySet="Urunler" />
+            <End Role="ResimUrun" EntitySet="ResimUrun" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sepet_AspNetUsers" Association="Self.FK_Sepet_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Sepet" EntitySet="Sepet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sepet_Urunler" Association="Self.FK_Sepet_Urunler">
+            <End Role="Urunler" EntitySet="Urunler" />
+            <End Role="Sepet" EntitySet="Sepet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Siparis_AspNetUsers" Association="Self.FK_Siparis_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Siparis" EntitySet="Siparis" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Siparis_Kargo" Association="Self.FK_Siparis_Kargo">
+            <End Role="Kargo" EntitySet="Kargo" />
+            <End Role="Siparis" EntitySet="Siparis" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SiparisKalem_Siparis" Association="Self.FK_SiparisKalem_Siparis">
+            <End Role="Siparis" EntitySet="Siparis" />
+            <End Role="SiparisKalem" EntitySet="SiparisKalem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SiparisKalem_Urunler" Association="Self.FK_SiparisKalem_Urunler">
+            <End Role="Urunler" EntitySet="Urunler" />
+            <End Role="SiparisKalem" EntitySet="SiparisKalem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Urunler_Kategori" Association="Self.FK_Urunler_Kategori">
+            <End Role="Kategori" EntitySet="Kategori" />
+            <End Role="Urunler" EntitySet="Urunler" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="StarkmssModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="StarkmssEntities" annotation:LazyLoadingEnabled="true" >
+          <EntitySet Name="C__MigrationHistory" EntityType="StarkmssModel.C__MigrationHistory" />
+          <EntitySet Name="AspNetRoles" EntityType="StarkmssModel.AspNetRole" />
+          <EntitySet Name="AspNetUserClaims" EntityType="StarkmssModel.AspNetUserClaim" />
+          <EntitySet Name="AspNetUserLogins" EntityType="StarkmssModel.AspNetUserLogin" />
+          <EntitySet Name="AspNetUsers" EntityType="StarkmssModel.AspNetUser" />
+          <EntitySet Name="Hakkimizdas" EntityType="StarkmssModel.Hakkimizda" />
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="StarkmssModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaim" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="StarkmssModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogin" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="AspNetUserRoles" Association="StarkmssModel.AspNetUserRoles">
+            <End Role="AspNetRole" EntitySet="AspNetRoles" />
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+          </AssociationSet>
+          <EntitySet Name="Histories" EntityType="StarkmssModel.History" />
+          <EntitySet Name="Iletisims" EntityType="StarkmssModel.Iletisim" />
+          <EntitySet Name="sysdiagrams" EntityType="StarkmssModel.sysdiagram" />
+          <EntitySet Name="Kategoris" EntityType="StarkmssModel.Kategori" />
+          <EntitySet Name="ResimUruns" EntityType="StarkmssModel.ResimUrun" />
+          <EntitySet Name="Urunlers" EntityType="StarkmssModel.Urunler" />
+          <AssociationSet Name="FK_Urunler_Kategori" Association="StarkmssModel.FK_Urunler_Kategori">
+            <End Role="Kategori" EntitySet="Kategoris" />
+            <End Role="Urunler" EntitySet="Urunlers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ResimUrun_Urunler" Association="StarkmssModel.FK_ResimUrun_Urunler">
+            <End Role="Urunler" EntitySet="Urunlers" />
+            <End Role="ResimUrun" EntitySet="ResimUruns" />
+          </AssociationSet>
+          <EntitySet Name="Kargoes" EntityType="StarkmssModel.Kargo" />
+          <EntitySet Name="BlogKategoris" EntityType="StarkmssModel.BlogKategori" />
+          <EntitySet Name="BlogYazis" EntityType="StarkmssModel.BlogYazi" />
+          <AssociationSet Name="FK_BlogYazi_BlogKategori" Association="StarkmssModel.FK_BlogYazi_BlogKategori">
+            <End Role="BlogKategori" EntitySet="BlogKategoris" />
+            <End Role="BlogYazi" EntitySet="BlogYazis" />
+          </AssociationSet>
+          <EntitySet Name="Sliders" EntityType="StarkmssModel.Slider" />
+          <EntitySet Name="Sepets" EntityType="StarkmssModel.Sepet" />
+          <EntitySet Name="Siparis" EntityType="StarkmssModel.Sipari" />
+          <EntitySet Name="SiparisKalems" EntityType="StarkmssModel.SiparisKalem" />
+          <AssociationSet Name="FK_Sepet_AspNetUsers" Association="StarkmssModel.FK_Sepet_AspNetUsers">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="Sepet" EntitySet="Sepets" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Siparis_AspNetUsers" Association="StarkmssModel.FK_Siparis_AspNetUsers">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="Sipari" EntitySet="Siparis" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Siparis_Kargo" Association="StarkmssModel.FK_Siparis_Kargo">
+            <End Role="Kargo" EntitySet="Kargoes" />
+            <End Role="Sipari" EntitySet="Siparis" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sepet_Urunler" Association="StarkmssModel.FK_Sepet_Urunler">
+            <End Role="Urunler" EntitySet="Urunlers" />
+            <End Role="Sepet" EntitySet="Sepets" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SiparisKalem_Siparis" Association="StarkmssModel.FK_SiparisKalem_Siparis">
+            <End Role="Sipari" EntitySet="Siparis" />
+            <End Role="SiparisKalem" EntitySet="SiparisKalems" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SiparisKalem_Urunler" Association="StarkmssModel.FK_SiparisKalem_Urunler">
+            <End Role="Urunler" EntitySet="Urunlers" />
+            <End Role="SiparisKalem" EntitySet="SiparisKalems" />
+          </AssociationSet>
+          <EntitySet Name="Bayis" EntityType="StarkmssModel.Bayi" />
+          <EntitySet Name="Stoks" EntityType="StarkmssModel.Stok" />
+        </EntityContainer>
+        <EntityType Name="C__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="ContextKey" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="Model" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+          <Property Name="ProductVersion" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="AspNetRole">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUsers" Relationship="StarkmssModel.AspNetUserRoles" FromRole="AspNetRole" ToRole="AspNetUser" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaim">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUser" Relationship="StarkmssModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaim" ToRole="AspNetUser" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogin">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="ProviderKey" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUser" Relationship="StarkmssModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogin" ToRole="AspNetUser" />
+        </EntityType>
+        <EntityType Name="AspNetUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+          <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUserClaims" Relationship="StarkmssModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUser" ToRole="AspNetUserClaim" />
+          <NavigationProperty Name="AspNetUserLogins" Relationship="StarkmssModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUser" ToRole="AspNetUserLogin" />
+          <NavigationProperty Name="AspNetRoles" Relationship="StarkmssModel.AspNetUserRoles" FromRole="AspNetUser" ToRole="AspNetRole" />
+          <NavigationProperty Name="Sepets" Relationship="StarkmssModel.FK_Sepet_AspNetUsers" FromRole="AspNetUser" ToRole="Sepet" />
+          <NavigationProperty Name="Siparis" Relationship="StarkmssModel.FK_Siparis_AspNetUsers" FromRole="AspNetUser" ToRole="Sipari" />
+        </EntityType>
+        <EntityType Name="Hakkimizda">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Aciklama" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Slogan" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Type="StarkmssModel.AspNetUser" Role="AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="StarkmssModel.AspNetUserClaim" Role="AspNetUserClaim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaim">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Type="StarkmssModel.AspNetUser" Role="AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="StarkmssModel.AspNetUserLogin" Role="AspNetUserLogin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogin">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AspNetUserRoles">
+          <End Type="StarkmssModel.AspNetRole" Role="AspNetRole" Multiplicity="*" />
+          <End Type="StarkmssModel.AspNetUser" Role="AspNetUser" Multiplicity="*" />
+        </Association>
+        <EntityType Name="History">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Aciklama" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Resim" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+          <Property Name="Tarih" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Iletisim">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Aciklama" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Adres" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Telefon" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Telefon2" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Haftaici" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Cumartesi" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Pazar" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Kategori">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KategoriAdi" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Urunlers" Relationship="StarkmssModel.FK_Urunler_Kategori" FromRole="Kategori" ToRole="Urunler" />
+        </EntityType>
+        <EntityType Name="ResimUrun">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RefUrunId" Type="Int32" Nullable="false" />
+          <Property Name="Resim" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="Urunler" Relationship="StarkmssModel.FK_ResimUrun_Urunler" FromRole="ResimUrun" ToRole="Urunler" />
+        </EntityType>
+        <EntityType Name="Urunler">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RefKategoriId" Type="Int32" Nullable="false" />
+          <Property Name="UrunAdi" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="UrunAciklamasi" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Fiyat" Type="Double" Nullable="false" />
+          <NavigationProperty Name="Kategori" Relationship="StarkmssModel.FK_Urunler_Kategori" FromRole="Urunler" ToRole="Kategori" />
+          <NavigationProperty Name="ResimUruns" Relationship="StarkmssModel.FK_ResimUrun_Urunler" FromRole="Urunler" ToRole="ResimUrun" />
+          <NavigationProperty Name="Sepets" Relationship="StarkmssModel.FK_Sepet_Urunler" FromRole="Urunler" ToRole="Sepet" />
+          <NavigationProperty Name="SiparisKalems" Relationship="StarkmssModel.FK_SiparisKalem_Urunler" FromRole="Urunler" ToRole="SiparisKalem" />
+        </EntityType>
+        <Association Name="FK_Urunler_Kategori">
+          <End Type="StarkmssModel.Kategori" Role="Kategori" Multiplicity="1" />
+          <End Type="StarkmssModel.Urunler" Role="Urunler" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kategori">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Urunler">
+              <PropertyRef Name="RefKategoriId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ResimUrun_Urunler">
+          <End Type="StarkmssModel.Urunler" Role="Urunler" Multiplicity="1" />
+          <End Type="StarkmssModel.ResimUrun" Role="ResimUrun" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Urunler">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ResimUrun">
+              <PropertyRef Name="RefUrunId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Kargo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KargoAdi" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Siparis" Relationship="StarkmssModel.FK_Siparis_Kargo" FromRole="Kargo" ToRole="Sipari" />
+        </EntityType>
+        <EntityType Name="BlogKategori">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BlogKategoriAdi" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="BlogYazis" Relationship="StarkmssModel.FK_BlogYazi_BlogKategori" FromRole="BlogKategori" ToRole="BlogYazi" />
+        </EntityType>
+        <EntityType Name="BlogYazi">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RefBlogKategoriId" Type="Int32" Nullable="false" />
+          <Property Name="Baslik" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Yazi" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Tarih" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Yazar" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Seo" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="BlogKategori" Relationship="StarkmssModel.FK_BlogYazi_BlogKategori" FromRole="BlogYazi" ToRole="BlogKategori" />
+        </EntityType>
+        <Association Name="FK_BlogYazi_BlogKategori">
+          <End Type="StarkmssModel.BlogKategori" Role="BlogKategori" Multiplicity="1" />
+          <End Type="StarkmssModel.BlogYazi" Role="BlogYazi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BlogKategori">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BlogYazi">
+              <PropertyRef Name="RefBlogKategoriId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Slider">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Resim" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+          <Property Name="Sirasi" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Sepet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RefAspNetUserID" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="RefUrunId" Type="Int32" Nullable="false" />
+          <Property Name="Adet" Type="Int32" Nullable="false" />
+          <Property Name="ToplamTutar" Type="Double" Nullable="false" />
+          <NavigationProperty Name="AspNetUser" Relationship="StarkmssModel.FK_Sepet_AspNetUsers" FromRole="Sepet" ToRole="AspNetUser" />
+          <NavigationProperty Name="Urunler" Relationship="StarkmssModel.FK_Sepet_Urunler" FromRole="Sepet" ToRole="Urunler" />
+        </EntityType>
+        <EntityType Name="Sipari">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RefAspNetUserID" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Ad" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Soyad" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Adres" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Telefon" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Tarih" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="TcKimlikNo" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="RefKargoID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="AspNetUser" Relationship="StarkmssModel.FK_Siparis_AspNetUsers" FromRole="Sipari" ToRole="AspNetUser" />
+          <NavigationProperty Name="Kargo" Relationship="StarkmssModel.FK_Siparis_Kargo" FromRole="Sipari" ToRole="Kargo" />
+          <NavigationProperty Name="SiparisKalems" Relationship="StarkmssModel.FK_SiparisKalem_Siparis" FromRole="Sipari" ToRole="SiparisKalem" />
+        </EntityType>
+        <EntityType Name="SiparisKalem">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RefSiparisID" Type="Int32" Nullable="false" />
+          <Property Name="RefUrunID" Type="Int32" Nullable="false" />
+          <Property Name="Adet" Type="Int32" Nullable="false" />
+          <Property Name="ToplamTutar" Type="Double" Nullable="false" />
+          <NavigationProperty Name="Sipari" Relationship="StarkmssModel.FK_SiparisKalem_Siparis" FromRole="SiparisKalem" ToRole="Sipari" />
+          <NavigationProperty Name="Urunler" Relationship="StarkmssModel.FK_SiparisKalem_Urunler" FromRole="SiparisKalem" ToRole="Urunler" />
+        </EntityType>
+        <Association Name="FK_Sepet_AspNetUsers">
+          <End Type="StarkmssModel.AspNetUser" Role="AspNetUser" Multiplicity="1" />
+          <End Type="StarkmssModel.Sepet" Role="Sepet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Sepet">
+              <PropertyRef Name="RefAspNetUserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Siparis_AspNetUsers">
+          <End Type="StarkmssModel.AspNetUser" Role="AspNetUser" Multiplicity="1" />
+          <End Type="StarkmssModel.Sipari" Role="Sipari" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Sipari">
+              <PropertyRef Name="RefAspNetUserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Siparis_Kargo">
+          <End Type="StarkmssModel.Kargo" Role="Kargo" Multiplicity="1" />
+          <End Type="StarkmssModel.Sipari" Role="Sipari" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kargo">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Sipari">
+              <PropertyRef Name="RefKargoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sepet_Urunler">
+          <End Type="StarkmssModel.Urunler" Role="Urunler" Multiplicity="1" />
+          <End Type="StarkmssModel.Sepet" Role="Sepet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Urunler">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Sepet">
+              <PropertyRef Name="RefUrunId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SiparisKalem_Siparis">
+          <End Type="StarkmssModel.Sipari" Role="Sipari" Multiplicity="1" />
+          <End Type="StarkmssModel.SiparisKalem" Role="SiparisKalem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sipari">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SiparisKalem">
+              <PropertyRef Name="RefSiparisID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SiparisKalem_Urunler">
+          <End Type="StarkmssModel.Urunler" Role="Urunler" Multiplicity="1" />
+          <End Type="StarkmssModel.SiparisKalem" Role="SiparisKalem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Urunler">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SiparisKalem">
+              <PropertyRef Name="RefUrunID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Bayi">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AdSoyad" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SirketAdi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Telefon" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Aciklama" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Stok">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UrunAdi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="UrunKodu" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Fiyatı" Type="Double" />
+          <Property Name="Aciklama" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Adet" Type="Int32" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="StarkmssModelStoreContainer" CdmEntityContainer="StarkmssEntities" >
+          <EntitySetMapping Name="C__MigrationHistory">
+            <EntityTypeMapping TypeName="StarkmssModel.C__MigrationHistory">
+              <MappingFragment StoreEntitySet="__MigrationHistory">
+                <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+                <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetRoles">
+            <EntityTypeMapping TypeName="StarkmssModel.AspNetRole">
+              <MappingFragment StoreEntitySet="AspNetRoles">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserClaims">
+            <EntityTypeMapping TypeName="StarkmssModel.AspNetUserClaim">
+              <MappingFragment StoreEntitySet="AspNetUserClaims">
+                <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+                <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserLogins">
+            <EntityTypeMapping TypeName="StarkmssModel.AspNetUserLogin">
+              <MappingFragment StoreEntitySet="AspNetUserLogins">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+                <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUsers">
+            <EntityTypeMapping TypeName="StarkmssModel.AspNetUser">
+              <MappingFragment StoreEntitySet="AspNetUsers">
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+                <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+                <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+                <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+                <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Hakkimizdas">
+            <EntityTypeMapping TypeName="StarkmssModel.Hakkimizda">
+              <MappingFragment StoreEntitySet="Hakkimizda">
+                <ScalarProperty Name="Slogan" ColumnName="Slogan" />
+                <ScalarProperty Name="Aciklama" ColumnName="Aciklama" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="AspNetUserRoles" TypeName="StarkmssModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+            <EndProperty Name="AspNetUser">
+              <ScalarProperty Name="Id" ColumnName="UserId" />
+            </EndProperty>
+            <EndProperty Name="AspNetRole">
+              <ScalarProperty Name="Id" ColumnName="RoleId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <EntitySetMapping Name="Histories">
+            <EntityTypeMapping TypeName="StarkmssModel.History">
+              <MappingFragment StoreEntitySet="History">
+                <ScalarProperty Name="Tarih" ColumnName="Tarih" />
+                <ScalarProperty Name="Resim" ColumnName="Resim" />
+                <ScalarProperty Name="Aciklama" ColumnName="Aciklama" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Iletisims">
+            <EntityTypeMapping TypeName="StarkmssModel.Iletisim">
+              <MappingFragment StoreEntitySet="Iletisim">
+                <ScalarProperty Name="Pazar" ColumnName="Pazar" />
+                <ScalarProperty Name="Cumartesi" ColumnName="Cumartesi" />
+                <ScalarProperty Name="Haftaici" ColumnName="Haftaici" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Telefon2" ColumnName="Telefon2" />
+                <ScalarProperty Name="Telefon" ColumnName="Telefon" />
+                <ScalarProperty Name="Adres" ColumnName="Adres" />
+                <ScalarProperty Name="Aciklama" ColumnName="Aciklama" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="StarkmssModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Kategoris">
+            <EntityTypeMapping TypeName="StarkmssModel.Kategori">
+              <MappingFragment StoreEntitySet="Kategori">
+                <ScalarProperty Name="KategoriAdi" ColumnName="KategoriAdi" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ResimUruns">
+            <EntityTypeMapping TypeName="StarkmssModel.ResimUrun">
+              <MappingFragment StoreEntitySet="ResimUrun">
+                <ScalarProperty Name="Resim" ColumnName="Resim" />
+                <ScalarProperty Name="RefUrunId" ColumnName="RefUrunId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Urunlers">
+            <EntityTypeMapping TypeName="StarkmssModel.Urunler">
+              <MappingFragment StoreEntitySet="Urunler">
+                <ScalarProperty Name="Fiyat" ColumnName="Fiyat" />
+                <ScalarProperty Name="UrunAciklamasi" ColumnName="UrunAciklamasi" />
+                <ScalarProperty Name="UrunAdi" ColumnName="UrunAdi" />
+                <ScalarProperty Name="RefKategoriId" ColumnName="RefKategoriId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Kargoes">
+            <EntityTypeMapping TypeName="StarkmssModel.Kargo">
+              <MappingFragment StoreEntitySet="Kargo">
+                <ScalarProperty Name="KargoAdi" ColumnName="KargoAdi" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BlogKategoris">
+            <EntityTypeMapping TypeName="StarkmssModel.BlogKategori">
+              <MappingFragment StoreEntitySet="BlogKategori">
+                <ScalarProperty Name="BlogKategoriAdi" ColumnName="BlogKategoriAdi" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BlogYazis">
+            <EntityTypeMapping TypeName="StarkmssModel.BlogYazi">
+              <MappingFragment StoreEntitySet="BlogYazi">
+                <ScalarProperty Name="Seo" ColumnName="Seo" />
+                <ScalarProperty Name="Yazar" ColumnName="Yazar" />
+                <ScalarProperty Name="Tarih" ColumnName="Tarih" />
+                <ScalarProperty Name="Yazi" ColumnName="Yazi" />
+                <ScalarProperty Name="Baslik" ColumnName="Baslik" />
+                <ScalarProperty Name="RefBlogKategoriId" ColumnName="RefBlogKategoriId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sliders">
+            <EntityTypeMapping TypeName="StarkmssModel.Slider">
+              <MappingFragment StoreEntitySet="Slider">
+                <ScalarProperty Name="Sirasi" ColumnName="Sirasi" />
+                <ScalarProperty Name="Resim" ColumnName="Resim" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sepets">
+            <EntityTypeMapping TypeName="StarkmssModel.Sepet">
+              <MappingFragment StoreEntitySet="Sepet">
+                <ScalarProperty Name="ToplamTutar" ColumnName="ToplamTutar" />
+                <ScalarProperty Name="Adet" ColumnName="Adet" />
+                <ScalarProperty Name="RefUrunId" ColumnName="RefUrunId" />
+                <ScalarProperty Name="RefAspNetUserID" ColumnName="RefAspNetUserID" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Siparis">
+            <EntityTypeMapping TypeName="StarkmssModel.Sipari">
+              <MappingFragment StoreEntitySet="Siparis">
+                <ScalarProperty Name="RefKargoID" ColumnName="RefKargoID" />
+                <ScalarProperty Name="TcKimlikNo" ColumnName="TcKimlikNo" />
+                <ScalarProperty Name="Tarih" ColumnName="Tarih" />
+                <ScalarProperty Name="Telefon" ColumnName="Telefon" />
+                <ScalarProperty Name="Adres" ColumnName="Adres" />
+                <ScalarProperty Name="Soyad" ColumnName="Soyad" />
+                <ScalarProperty Name="Ad" ColumnName="Ad" />
+                <ScalarProperty Name="RefAspNetUserID" ColumnName="RefAspNetUserID" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SiparisKalems">
+            <EntityTypeMapping TypeName="StarkmssModel.SiparisKalem">
+              <MappingFragment StoreEntitySet="SiparisKalem">
+                <ScalarProperty Name="ToplamTutar" ColumnName="ToplamTutar" />
+                <ScalarProperty Name="Adet" ColumnName="Adet" />
+                <ScalarProperty Name="RefUrunID" ColumnName="RefUrunID" />
+                <ScalarProperty Name="RefSiparisID" ColumnName="RefSiparisID" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Bayis">
+            <EntityTypeMapping TypeName="StarkmssModel.Bayi">
+              <MappingFragment StoreEntitySet="Bayi">
+                <ScalarProperty Name="Aciklama" ColumnName="Aciklama" />
+                <ScalarProperty Name="Telefon" ColumnName="Telefon" />
+                <ScalarProperty Name="SirketAdi" ColumnName="SirketAdi" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="AdSoyad" ColumnName="AdSoyad" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Stoks">
+            <EntityTypeMapping TypeName="StarkmssModel.Stok">
+              <MappingFragment StoreEntitySet="Stok">
+                <ScalarProperty Name="Adet" ColumnName="Adet" />
+                <ScalarProperty Name="Aciklama" ColumnName="Aciklama" />
+                <ScalarProperty Name="Fiyatı" ColumnName="Fiyatı" />
+                <ScalarProperty Name="UrunKodu" ColumnName="UrunKodu" />
+                <ScalarProperty Name="UrunAdi" ColumnName="UrunAdi" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

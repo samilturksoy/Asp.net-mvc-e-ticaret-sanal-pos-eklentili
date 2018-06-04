@@ -1,0 +1,53 @@
+﻿@model Starkk.Models.History
+
+@{
+    ViewBag.Title = "Sil";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPageAdmin.cshtml";
+}
+
+<h2>Kalıcı Olarak Sil</h2>
+
+<h3>Bunu silmek istediğinizden eminmisiniz ?</h3>
+<div>
+    <h4>History</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Aciklama)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Aciklama)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Resim)
+        </dt>
+
+        <dd>
+            @{
+        string imageBase64 = Convert.ToBase64String(Model.Resim);
+        string imageSrc = string.Format("data:image/gif;base64,{0}", imageBase64);
+        <img src="@imageSrc" class="img-responsive" />
+            }
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tarih)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tarih)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Sil" class="btn btn-danger" /> |
+            @Html.ActionLink("Listeye Geri Dön", "Index")
+        </div>
+    }
+</div>

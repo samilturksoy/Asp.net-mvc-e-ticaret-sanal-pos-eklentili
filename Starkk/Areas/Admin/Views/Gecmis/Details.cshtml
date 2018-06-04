@@ -1,0 +1,47 @@
+﻿@model Starkk.Models.History
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPageAdmin.cshtml";
+}
+
+<h2>Geçmiş Detay</h2>
+
+<div>
+    <h4>Geçmiş</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Aciklama)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Aciklama)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Resim)
+        </dt>
+
+        <dd>
+            @{
+        string imageBase64 = Convert.ToBase64String(Model.Resim);
+        string imageSrc = string.Format("data:image/gif;base64,{0}", imageBase64);
+        <img src="@imageSrc" class="img-responsive col-md-4" />
+            }
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tarih)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tarih)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Düzenle", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Listeye Geri Dön", "Index")
+</p>

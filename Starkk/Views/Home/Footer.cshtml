@@ -1,0 +1,19 @@
+﻿@model Starkk.Models.Iletisim
+@using Starkk.Controllers
+@{
+    Layout = null;
+}
+<div class="contact-details">
+    <h4>İletişim</h4>
+    <ul class="contact">
+        <li>
+            <p><em class="fa fa-map-marker"></em> <strong>Adres:</strong>@Model.Adres</p>
+        </li>
+        <li><p><i class="fa fa-whatsapp"></i> <strong>Whatsapp:</strong><a target="_blank" href="https://api.whatsapp.com/send?phone=@Model.Telefon"> @Model.Telefon</a></p></li>
+
+        <li><p><i class="fa fa-phone"></i> <strong>Telefon:</strong><a target="_blank" href="tel:phone=+905548383832"> @Model.Telefon2</a></p></li>
+
+
+        <li><p><i class="fa fa-envelope"></i> <strong>Email:</strong> <a  target="_blank" href="mailto:@Model.Email">@Model.Email</a></p></li>
+    </ul>
+</div>

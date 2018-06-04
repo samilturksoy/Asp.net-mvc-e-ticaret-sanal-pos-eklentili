@@ -1,0 +1,42 @@
+﻿@model Starkk.Models.MenuViewModel
+@using Starkk.Controllers
+@{
+    Layout = null;
+}
+<nav class="collapse">
+    <ul class="nav nav-pills" id="mainNav">
+
+        <li>@Html.ActionLink("ANASAYFA", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+
+        <li class="dropdown dropdown-mega">
+
+            @Html.ActionLink("ÜRÜNLER", "Index", "Urunler", new { area = "" }, new { @class = "dropdown-item dropdown-toggle" })
+            <ul class="dropdown-menu">
+                <li>
+                    <div class="dropdown-mega-content">
+                        <div class="row">
+                            @foreach (var item in Model.kategori)
+                            {
+                                <div class="col-lg-3">
+                                    <span class="dropdown-mega-sub-title">@item.KategoriAdi </span>
+                                    <ul class="dropdown-mega-sub-nav">
+                                        @foreach (var item2 in Model.urun.Where(p=>p.RefKategoriId==item.Id))
+                                        {
+                                            <li><a class = "dropdown-item" href="@Url.Action("UrunDetay","Urunler",new { id=item2.Id})">@item2.UrunAdi </a></li>
+                                        }
+                                        
+                                    </ul>
+                                </div>
+                            }
+                            
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </li>
+
+        <li>@Html.ActionLink("SEPET", "Index", "Sepet", new { area = "" }, new { @class = "nav-link" })</li>
+        <li>@Html.ActionLink("REFERANSLAR", "Index", "Referanslar", new { area = "" }, new { @class = "nav-link" })</li>
+        @Html.Partial("_LoginPartial")
+    </ul>
+</nav>

@@ -1,0 +1,87 @@
+﻿@using PagedList
+@using PagedList.Mvc
+@model IPagedList<Starkk.Models.Urunler>
+@{
+    ViewBag.Title = "Mağaza";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var resimlerimiz = ViewBag.Resimler;
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <hr class="tall">
+        </div>
+    </div>
+
+
+
+    <div class="row">
+        <div class="col-lg-6">
+            <h1 class="mb-0"><strong>Mağaza</strong></h1>
+            
+        </div>
+    </div>
+
+    <div class="masonry-loader masonry-loader-showing">
+        <div class="row products product-thumb-info-list mt-3" data-plugin-masonry>
+            @foreach (var item in Model)
+            {
+                <div class="col-12 col-sm-6 col-lg-3 product">
+                    <a href="@Url.Action("UrunDetay","Urunler",new { @id=item.Id})">
+
+                    </a>
+                    <span class="product-thumb-info">
+                        <a href="@Url.Action("SepeteEkle","Sepet",new { @id=item.Id})" class="add-to-cart-product">
+                            <span><i class="fa fa-shopping-cart"></i> Sepete Ekle</span>
+                        </a>
+                        <a href="@Url.Action("UrunDetay","Urunler",new { @id=item.Id})">
+                            <span class="product-thumb-info-image">
+                                <span class="product-thumb-info-act">
+                                    <span class="product-thumb-info-act-left"><em>Detayları</em></span>
+                                    <span class="product-thumb-info-act-right"><em><i class="fa fa-plus"></i> Gör</em></span>
+                                </span>
+
+                                @{
+                                    var resim = item.ResimUruns.Where(p => p.RefUrunId == item.Id).FirstOrDefault();
+                                    if (resim != null)
+                                    {
+                                        string imageBase64 = Convert.ToBase64String(resim.Resim);
+                                        string imageSrc = string.Format("data:image/gif;base64,{0}", imageBase64);
+                                        <img src="@imageSrc" class="img-fluid" />
+                                    }
+
+
+                                }
+
+
+                            </span>
+                        </a>
+                        <span class="product-thumb-info-content">
+                            <a href="productsingle.html">
+                                <h4>@item.UrunAdi</h4>
+                                <span class="price">
+
+                                    <ins><span class="amount">@item.Fiyat</span></ins>
+                                </span>
+                            </a>
+                        </span>
+                    </span>
+                </div>
+
+            }
+
+
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <ul class="pagination float-right">
+                @Html.PagedListPager(Model, sayfa => Url.Action("Index", new { sayfa }), PagedListRenderOptions.Classic)
+          
+            </ul>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,68 @@
+﻿@model IEnumerable<Starkk.Models.Sipari>
+@{
+    ViewBag.Title = "Siparisim";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container">
+    
+    <p>
+        @Html.ActionLink("Listeye Geri Dön", "Index")
+    </p>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>
+                    #
+                </th>
+                <th>
+                    Ad Soyad
+                </th>
+                <th>
+                    Tarih
+                </th>
+                <th>
+                    Fatura
+                </th>
+                <th>
+                    Detay
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+            <tr>
+
+                <td>
+
+                    @Html.DisplayFor(modelItem => item.Id)
+
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ad)   @Html.DisplayFor(modelItem => item.Soyad)
+
+
+                </td>
+                <td>
+
+                    @Html.DisplayFor(modelItem => item.Tarih)
+
+                </td>
+
+
+                <td>
+
+                    <a href="@Url.Action("FaturaOlustur","Manage",new { @id=item.Id})">Fatura Oluştur</a>
+                </td>
+                <td>
+
+                    @Html.ActionLink("Sipariş Detayları","Detay",new { id=item.Id})
+
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+    
+
+</div>

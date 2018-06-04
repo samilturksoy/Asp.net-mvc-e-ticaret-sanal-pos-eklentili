@@ -1,0 +1,83 @@
+﻿@model Starkk.Models.Iletisim
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPageAdmin.cshtml";
+}
+
+
+
+<div>
+    <h4>Iletisim</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Aciklama)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Aciklama)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Adres)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Adres)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Telefon)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Telefon)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Telefon2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Telefon2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Haftaici)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Haftaici)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cumartesi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cumartesi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Pazar)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pazar)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Düzenle", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Geri Dön", "Index")
+</p>

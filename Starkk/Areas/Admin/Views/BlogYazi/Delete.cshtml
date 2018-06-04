@@ -1,0 +1,73 @@
+﻿@model Starkk.Models.BlogYazi
+
+@{
+    ViewBag.Title = "Sil";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPageAdmin.cshtml";
+}
+
+<h2>Sil</h2>
+
+<h3>Bu yazıyı silmek istediğinizden eminmisiniz ?</h3>
+<div>
+    <h4>BlogYazi</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Baslik)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Baslik)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Yazi)
+        </dt>
+
+        <dd>
+            @Html.Raw(Model.Yazi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tarih)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tarih)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Yazar)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Yazar)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Seo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Seo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BlogKategori.BlogKategoriAdi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BlogKategori.BlogKategoriAdi)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Sil" class="btn btn-danger" /> |
+            @Html.ActionLink("Listeye Geri Dön", "Index")
+        </div>
+    }
+</div>

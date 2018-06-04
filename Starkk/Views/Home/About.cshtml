@@ -1,0 +1,112 @@
+﻿@model AboutViewModel
+@{
+    ViewBag.Title = "Hakkımzıda";
+}
+<div class="row">
+    <div class="col">
+        <hr class="shorter">
+    </div>
+</div>
+<div class="container">
+    <div class="row align-items-center">
+        <div class="col-lg-12">
+            <p class="lead hizala">
+               @Html.Raw( Model.Hakkimizda.Aciklama)
+                @*STARK Merkezi Süpürge Sistemi inovasyon ve Ar-Ge’ye verdiği önem, modern, teknolojik ve doğaya zarar vermeyen üretim tesisleri, kurum içi eğitim, özlük haklarında titizliği benimseyen, “doğru işe doğru insan” ve sosyal sorumluluk bilincini de içine alan kapsamlı İK Politikaları, gelişime ve sürekli iyileştirmeye açık kalite anlayışı, çevre dostu ürünleri, koşulsuz müşteri destek hizmeti ve yetkili servisleri ile hayata geçirdiği gerçek müşteri memnuniyeti bütününde çalışmalarını sürdürür.*@
+            </p>
+        </div>
+
+    </div>
+
+
+
+
+    <div class="row">
+        <div class="col">
+            <h2 class="word-rotator-title page-header-center">
+                <strong>
+                    <span class="word-rotator" data-plugin-options="{'delay': 2000}">
+                        <span class="word-rotator-items">
+                            <span style="color:#ffc107">Başarıya</span>
+                            <span style="color:#ffc107">Mutluluğa</span>
+                            <span style="color: #ffc107">Pratikliğe</span>
+                        </span>
+                    </span>
+                </strong>
+                giden yeni bir yol...
+            </h2>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col">
+
+            <h3 class="heading-primary mt-5"> <strong>Biz kimiz ?</strong></h3>
+
+            <ul class="history">
+
+                @foreach (var item in Model.Gecmis)
+                {
+                    <li class="appear-animation" data-appear-animation="fadeInUp">
+                        <div class="thumb">
+                            @{string imageBase64 = Convert.ToBase64String(item.Resim);
+
+
+                                string imageSrc = string.Format("data:image/gif;base64,{0}", imageBase64);
+                                <img src="@imageSrc" alt="" />
+                            }
+                        </div>
+                        <div class="featured-box">
+                            <div class="box-content">
+                                <h4 class="heading-primary"><strong>@item.Tarih</strong></h4>
+                                <p>
+                                    @item.Aciklama
+                                    @*STARK Merkezi Süpürge Sistemleri (SMSS) Vactom MVSS adı ile  2000-2007 yılları arasında ilk      olarak Avustralya’da faaliyete geçmiştir.*@
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+
+                }
+
+                @*<li class="appear-animation" data-appear-animation="fadeInUp">
+                    <div class="thumb">
+                        <img src="~/Content/img/fabrika.jpg" alt="" />
+                    </div>
+                    <div class="featured-box">
+                        <div class="box-content">
+                            <h4 class="heading-primary"><strong>2007</strong></h4>
+                            <p>Avustralya’daki başarısıyla fark yaratan SMSS ile Vactom MVSS 2007 yılından itibaren merkezi Kayseri olmak üzere tüm Türkiye’de hizmet vermeye başlamıştır. Ürünler Türkiye’de ilk kez açılan bu fabrikada yerli olarak üretilmektedir. Bu açıdan da bir ilke imza atılmış olup müşterilere  ürün temini ve yedek parça sorunu yaşatılmaması için özen gösterilmiştir.</p>
+                        </div>
+                    </div>
+                </li>
+                <li class="appear-animation" data-appear-animation="fadeInUp">
+                    <div class="thumb">
+                        <img src="~/Content/img/arge.jpg" alt="" />
+                    </div>
+                    <div class="featured-box">
+                        <div class="box-content">
+                            <h4 class="heading-primary"><strong>2010</strong></h4>
+                            <p> Globalleşme yolunda ilerleyen SMSS İnovasyon ve Ar-Ge’ye verdiği önemle beraber müşterilerine mutlu bir gelecek ile sağlıklı bir yaşamı vaat etmektedir.</p>
+                        </div>
+                    </div>
+                </li>
+                <li class="appear-animation" data-appear-animation="fadeInUp">
+                    <div class="thumb">
+                        <img src="~/Content/img/tecrube.jpg" alt="" />
+                    </div>
+                    <div class="featured-box">
+                        <div class="box-content">
+                            <h4 class="heading-primary"><strong>2018</strong></h4>
+                            <p>18 Yıllık tecrübemiz ile firmalar için müşteriyle olan kaliteli hizmetin ne kadar önemli olduğunu, müşterilerimize neler kazandırdığını biliyor ve bu hizmetin sağlıklı olması için uzman ekibimizle satış sonrası desteğe devam ederek müşerilerimizin memnuniyeti için yanlarında olmaya devam ediyoruz. </p>
+                        </div>
+                    </div>
+                </li>*@
+            </ul>
+
+        </div>
+    </div>
+
+
+</div>

@@ -1,0 +1,86 @@
+﻿@using PagedList
+@using PagedList.Mvc
+@model IPagedList<Starkk.Models.BlogYazi>
+
+@{
+    ViewBag.Title = "Tüm Yazılar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+
+<section class="page-header">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <ul class="breadcrumb">
+                    <li><a href="#">Tüm Yazılar</a></li>
+
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<div class="container">
+
+    <div class="row">
+        <div class="col">
+            <div class="blog-posts">
+                @foreach (var item in Model)
+                {
+                    <article class="post post-large">
+
+
+                        <div class="post-date">
+                            <span class="day">@item.Tarih.Day</span>
+                            <span class="month">@item.Tarih.ToString("MMM")</span>
+                        </div>
+
+                        <div class="post-content">
+
+                            <h2><a href="@Url.Action("BlogDetay","Blog",new { id=item.Id})">@item.Baslik</a></h2>
+                            @{
+                                if (item.Yazi.Length > 150)
+                                {
+                                    @Html.Raw(item.Yazi.Substring(0, 90) + "...");
+
+                                }
+                                else
+                                {
+                                    @Html.Raw(item.Yazi)
+                                }
+                            }
+
+                            <div class="post-meta">
+                                <span><i class="fa fa-user"></i> By <a href="#">@item.Yazar</a> </span>
+                                <span><i class="fa fa-tag"></i> @item.Seo </span>
+
+                                <span class="d-block d-sm-inline-block float-sm-right mt-3 mt-sm-0"><a href="@Url.Action("BlogDetay","Blog",new { id=item.Id})" class="btn btn-xs btn-primary">Devamını Oku...</a></span>
+                            </div>
+
+                        </div>
+                    </article>
+
+                }
+
+
+
+
+                <ul class="pagination float-right">
+                    @Html.PagedListPager(Model, sayfa => Url.Action("Index", new { sayfa }), PagedListRenderOptions.Classic)
+                </ul>
+
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+
+
+

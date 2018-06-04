@@ -1,0 +1,105 @@
+﻿@model Starkk.Models.Urunler
+
+@{
+    ViewBag.Title = "Ürün Düzenle";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPageAdmin.cshtml";
+    var resimlerimiz = ViewBag.Resimler;
+}
+
+<h2> @Model.UrunAdi ürünüdü düzenle</h2>
+
+@using (Html.BeginForm("Edit", "Urunler", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Düzenle</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.RefKategoriId, "RefKategoriId", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("RefKategoriId", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.RefKategoriId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.UrunAdi, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.UrunAdi, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.UrunAdi, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.UrunAciklamasi, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.UrunAciklamasi, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.UrunAciklamasi, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Fiyat, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Fiyat, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Fiyat, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Yeni Resim Ekle</label>
+            <div class="col-md-10">
+                <input type="file" id="ResimFile" name="ResimFile" class="form-control" multiple />
+            </div>
+        </div>
+
+
+        @foreach (var item in resimlerimiz)
+        {
+            <div class="form-group">
+                <label class="control-label col-md-2">Ürün Resmi</label>
+                <div class="col-md-10">
+                    @{
+
+
+                        string imageBase64 = Convert.ToBase64String(item.Resim);
+                        string imageSrc = string.Format("data:image/gif;base64,{0}", imageBase64);
+                        <img src="@imageSrc" class="img-responsive col-md-4" />
+                    }
+                    <a href="@Url.Action("Deleteimg", "Urunler", new { Id=item.Id})" onclick="return confirm('Silmek istediğinize eminmisiniz?')" class="btn btn-danger" data-id="@item.Id"><i class="fa fa-remove fa-fw"></i></a>
+                </div>
+            </div>
+
+
+        }
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Kaydet" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Ürün Listesi", "Index")
+</div>
+@section scripts{
+    <script src="~/Areas/Admin/Content/bower_components/ckeditor/ckeditor.js"></script>
+    <script>
+  $(function () {
+    // Replace the <textarea id="editor1"> with a CKEditor
+    // instance, using default configuration.
+    CKEDITOR.replace('UrunAciklamasi')
+
+
+  })
+    </script>
+
+}

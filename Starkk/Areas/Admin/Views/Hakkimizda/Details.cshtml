@@ -1,0 +1,35 @@
+﻿@model Starkk.Models.Hakkimizda
+
+@{
+    ViewBag.Title = "Detay";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPageAdmin.cshtml";
+}
+
+<h2>Detay</h2>
+
+<div>
+    <h4>Hakkimizda</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Aciklama)
+        </dt>
+
+        <dd>
+            @Html.Raw(Model.Aciklama)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Slogan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Slogan)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Düzenle", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Listeye Geri Dön", "Index")
+</p>

@@ -1,0 +1,238 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+<head>
+
+
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>@ViewBag.Title - STARK MERKEZİ SÜPÜRGE SİSTEMİ</title>
+
+    <meta name="keywords" content="Merkezi süpürge sistemi,akıllı süpürge sistemi,süpürge,sağlıklı süpürge sistemi" />
+    <meta name="description" content="Merkezi süpürge sistemi ve sağlıklı süpürge sistemi ">
+    <meta name="author" content="starkmss.com">
+
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="~/Content/img/favicon.png" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="~/Content/img/apple-touch-icon.png">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+
+    @Styles.Render("~/Content/starkcss")
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+
+</head>
+<body>
+
+    <div class="body">
+        <header id="header" data-plugin-options="{'stickyEnabled': true, 'stickyEnableOnBoxed': true, 'stickyEnableOnMobile': true, 'stickyStartAt': 55, 'stickySetTop': '-55px', 'stickyChangeLogo': true}">
+            <div class="header-body">
+                <div class="header-container container">
+                    <div class="header-row">
+                        <div class="header-column">
+                            <div class="header-row">
+                                <div class="header-logo">
+                                    <a href="@Url.Action("Index", "Home")">
+                                        <img alt="STARK Merkezi Süpürge Sistemi Logo" width="250" height="122" data-sticky-width="250" data-sticky-height="122" data-sticky-top="25" src="~/Content/img/logo2.png">
+
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="header-column justify-content-end">
+                            <div class="header-row pt-3">
+                                <nav class="header-nav-top">
+                                    <ul class="nav nav-pills">
+                                        <li class="nav-item d-none d-sm-block">
+
+                                            <a class="nav-link" href="@Url.Action("About", "Home")"><i class="fa fa-angle-right"></i> Hakkımızda</a>
+                                        </li>
+                                        <li class="nav-item d-none d-sm-block">
+                                            <a class="nav-link" href="@Url.Action("Contact", "Home")"><i class="fa fa-angle-right"></i> İletişim</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <span class="ws-nowrap"><i class="fa fa-phone"></i><a href="tel:+905413964264">541 396 4264</a></span>
+                                        </li>
+                                    </ul>
+                                </nav>
+                                <div class="header-search d-none d-md-block">
+
+                                </div>
+                            </div>
+                            <div class="header-row">
+                                <div class="header-nav">
+                                    <div class="header-nav-main header-nav-main-effect-1 header-nav-main-sub-effect-1">
+                                        @Html.Action("Menu", "Home")
+                                    </div>
+                                    <ul class="header-social-icons social-icons d-none d-sm-block">
+                                        <li class="social-icons-facebook"><a href="https://www.facebook.com/STARK-Merkezi-S%C3%BCp%C3%BCrge-Sistemleri-1505589192903895/" target="_blank" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+                                        <li class="social-icons-twitter"><a href="https://twitter.com/STARKMSS" target="_blank" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+                                        <li class="social-icons-instagram"><a href="https://www.instagram.com/starkmss/" target="_blank" title="İnstagram"><i class="fa fa-instagram"></i></a></li>
+                                    </ul>
+                                    <button class="btn header-btn-collapse-nav" data-toggle="collapse" data-target=".header-nav-main nav">
+                                        <i class="fa fa-bars"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+
+        <div role="main" class="main shop">
+
+            @RenderBody()
+
+
+        </div>
+
+
+
+        <footer id="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="footer-ribbon">
+                        <span>STARK Merkezi  süpürge sistemi</span>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="newsletter">
+                            <h4>STARK</h4>
+                            <p>
+                                Sağlıklı bir hayat için güzel bir gelecek.
+                                Güzel bir gelecek için STARK Merkezi Süpürge Sistemi
+                            </p>
+
+
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <h4>Bayimiz Olun</h4>
+                        <div>
+                            <p>Bayimiz olmak için hemen <a data-toggle="modal" data-target="#formModal"> tıklayın</a></p>
+                        </div>
+                    </div>
+
+                    <!--Modal-->
+
+
+                    <div class="modal fade" id="formModal" tabindex="-1" role="dialog" aria-labelledby="formModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title" style="color:black;" id="formModalLabel">Bayi Başvurusu </h4>
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                </div>
+                                <div class="modal-body">
+                                    <form id="demo-form" action="~/Admin/Bayi/Create" method="post" class="mb-4" novalidate="novalidate">
+                                        <div class="form-group row align-items-center">
+                                            <label class="col-sm-3 text-left text-sm-right mb-0">İsim Soyisim</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" name="AdSoyad" class="form-control" placeholder="Lütfen isminizi giriniz" required />
+                                            </div>
+                                        </div>
+                                        <div class="form-group row align-items-center">
+                                            <label class="col-sm-3 text-left text-sm-right mb-0">Email</label>
+                                            <div class="col-sm-9">
+                                                <input type="email" name="Email" class="form-control" placeholder="Email adresiniz" required />
+                                            </div>
+                                        </div>
+                                        <div class="form-group row align-items-center">
+                                            <label class="col-sm-3 text-left text-sm-right mb-0">Şirket Adı</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" name="SirketAdi" class="form-control" placeholder="Şirket Adı" required />
+                                            </div>
+                                        </div>
+                                        <div class="form-group row align-items-center">
+                                            <label class="col-sm-3 text-left text-sm-right mb-0">Telefon</label>
+                                            <div class="col-sm-9">
+                                                <input type="tel" name="Telefon" class="form-control" placeholder="Ulaşılabilir Telefon Numaranız" required />
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 text-left text-sm-right mb-0">Eklemek istediğiniz</label>
+                                            <div class="col-sm-9">
+                                                <textarea rows="5" name="Aciklama" class="form-control" placeholder="Lütfen mesajınızı bırakın" required></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-light" data-dismiss="modal">Kapat</button>
+                                            <button type="submit" class="btn btn-primary">Kaydet</button>
+                                        </div>
+                                    </form>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- Bitiş-->
+
+
+                    <div class="col-lg-4">
+                        @Html.Action("Footer", "Home")
+                    </div>
+                    <div class="col-lg-2">
+                        <h4>Takip edin</h4>
+                        <ul class="social-icons">
+                            <li class="social-icons-facebook"><a href="http://www.facebook.com/STARK-Merkezi-Süpürge-Sistemleri-1505589192903895/" target="_blank" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+                            <li class="social-icons-twitter"><a href="http://www.twitter.com/STARKMSS" target="_blank" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+                            <li class="social-icons-instagram"><a href="http://www.instagram.com/starkmss/" target="_blank" title="İnstagram"><i class="fa fa-instagram"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-2">
+
+                            <img alt="stark merkezi süpürge sistemi banka kartları" class="img-fluid" src="~/Content/img/tumkart-32px.png">
+
+
+
+                        </div>
+                        <div class="col-lg-6">
+                            <p>© Copyright 2018. Tüm hakları saklıdır.</p>
+                        </div>
+                        <div class="col-lg-4">
+                            <nav id="sub-menu">
+                                <ul>
+
+                                    <li><a href="@Url.Action("MesafeUrun", "Home")">Ürün Sözleşmesi</a></li>
+                                    <li><a href="@Url.Action("SSS", "Home")">S.S.S</a></li>
+                                    <li><a href="@Url.Action("About", "Home")">Hakkımızda</a></li>
+                                    <li><a href="@Url.Action("Contact", "Home")">İletişim</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+
+    </div>
+
+
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-119872150-1"></script>
+    <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-119872150-1');
+    </script>
+
+
+
+    @Scripts.Render("~/bundles/starkjs")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

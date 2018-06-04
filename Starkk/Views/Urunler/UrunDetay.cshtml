@@ -1,0 +1,119 @@
+﻿@model Starkk.Models.Urunler
+@{
+    ViewBag.Title = Model.UrunAdi+" " +"Ürün Detay";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var resimlerimiz = ViewBag.Resimler;
+}
+
+<div class="container">
+
+    <div class="row">
+        <div class="col">
+            <hr class="tall">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-6">
+
+            <div class="owl-carousel owl-theme" data-plugin-options="{'items': 1}">
+                @foreach (var item in resimlerimiz)
+                {
+                    
+
+                    
+                        string imageBase64 = Convert.ToBase64String(item.Resim);
+                        string imageSrc = string.Format("data:image/gif;base64,{0}", imageBase64);
+
+                        <div>
+                            <div class="thumbnail">
+                                <img alt="" class="img-fluid border rounded" src="@imageSrc">
+                            </div>
+                        </div>
+
+
+                       
+                    
+
+                }
+
+
+            </div>
+
+        </div>
+
+        <div class="col-lg-6">
+
+            <div class="summary entry-summary">
+
+                <h1 class="mb-0"><strong>@Model.UrunAdi</strong></h1>
+
+
+
+
+
+                <p class="price">
+                    <span class="amount">@Model.Fiyat TL</span>
+                </p>
+                <p class="mb-4">
+                    @{
+                        if (Model.UrunAciklamasi.Length > 20)
+                        {
+                            Html.Raw(Model.UrunAciklamasi.Substring(0, 20) + "...");
+
+                        }
+                        else
+                        {
+                            @Html.Raw(Model.UrunAciklamasi)
+                        }
+                    }
+
+
+                </p>
+                <!--<form enctype="multipart/form-data" method="post" class="cart"></form>
+
+
+                <button href="sepet.html" class="btn btn-primary pt-2 pb-2 pr-3 pl-3">Sepete Ekle</button>
+
+
+                aşşağıdaki formun
+                -->
+
+
+                <div class="quantity">
+                    
+                    <input type="text" class="input-text qty text" title="Qty" value="1" name="adet" min="1" step="1">
+                    
+                </div>
+                <a href="@Url.Action("SepeteEkle","Sepet",new { @id=Model.Id})" class="btn btn-primary pt-2 pb-2 pr-3 pl-3">Sepete Ekle</a>
+
+
+
+
+
+            </div>
+
+
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <div class="tabs tabs-product">
+                <ul class="nav nav-tabs">
+                    <li class="nav-item active"><a class="nav-link" href="#productDescription" data-toggle="tab">Açıklama</a></li>
+                    
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="productDescription">
+                        @Html.Raw(Model.UrunAciklamasi)
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+

@@ -1,0 +1,164 @@
+﻿@model IEnumerable<Starkk.Models.BlogYazi>
+@{
+    Layout = null;
+}
+
+
+<section class="section section-custom-map">
+    <section class="section section-default section-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="recent-posts mb-5">
+                        <h2>En son <strong>Blog</strong> Yazıları</h2>
+                        <div class="owl-carousel owl-theme mb-0" data-plugin-options="{'items': 1}">
+                            <div class="row">
+                                @{ int sayac = 0;
+                                }
+                                @foreach (var item in Model)
+                                {
+
+                                    <div class="col-lg-6">
+                                        <article>
+                                            <div class="date">
+                                                <span class="day">@item.Tarih.Day</span>
+                                                <span class="month">@item.Tarih.ToString("MMM")</span>
+                                            </div>
+                                            <h4 class="heading-primary"><a href="@Url.Action("BlogDetay", "Blog",new { id=item.Id})">@item.Baslik</a></h4>
+                                            @{
+                                                if (item.Yazi.Length > 150)
+                                                {
+                                                    @Html.Raw(item.Yazi.Substring(0, 90) + "...");
+
+                                                }
+                                                else
+                                                {
+                                                    @Html.Raw(item.Yazi)
+                                                }
+                                            }
+                                        </article>
+                                    </div>
+
+                                                    sayac = sayac + 1;
+                                                    int kalan = sayac % 2;
+                                                    if (kalan == 0)
+                                                    {
+                                                        
+                                                        @Html.Raw("</div><div class=\"row\">");
+                                                    }
+
+
+                                   }
+
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <h2><strong>Kullanıcı</strong> Yorumları ?</h2>
+                    <div class="row">
+                        <div class="owl-carousel owl-theme mb-0" data-plugin-options="{'items': 1}">
+
+
+
+                            <div>
+                                <div class="col">
+                                    <div class="testimonial testimonial-primary">
+                                        <blockquote>
+                                            <p>Merkezi süpürge sistemi sayesinde komşularımı rahatsız etmeden sessiz bir ortamda temizlik yapabiliyorum. Rahat ve pratik bir temizlik herkesin tercihi. STARKMSS'yi kullanarak ne kadar doğru bir tercih yaptığımı görüyorum. Herkese tavsiye ederim. Teşekkürler StarkMss</p>
+                                        </blockquote>
+                                        <div class="testimonial-arrow-down"></div>
+                                        <div class="testimonial-author">
+                                            <div class="testimonial-author-thumbnail img-thumbnail">
+                                                <!--buraya kullanıcı resmi gelebilir-->
+                                            </div>
+                                            <p><strong>Yeşim YAZICI</strong><span>İş Analisti</span></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="col">
+                                    <div class="testimonial testimonial-primary">
+                                        <blockquote>
+                                            <p>
+                                                Yoğun tempolu bir iş gününden sonra temizliğe vakit ayırmaya eriniyordum. Merkezi süpürge sistemini duyduğumda çok cazip geldi ve hemen almak istedim. Artık kısa sürede süpürme işlemini tamamlayıp kendime ve çocuklarıma daha fazla vakit ayırıyorum.
+                                                Teşekkürler
+                                            </p>
+                                        </blockquote>
+                                        <div class="testimonial-arrow-down"></div>
+                                        <div class="testimonial-author">
+                                            <div class="testimonial-author-thumbnail img-thumbnail">
+                                                <!--buraya kullanıcı resmi gelebilir-->
+                                            </div>
+                                            <p><strong>Sibel Bozelma</strong><span>Reklamcı</span></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="col">
+                                    <div class="testimonial testimonial-primary">
+                                        <blockquote>
+                                            <p>STARKMSS'yi kullandığım için çok memnunum. Oradan oraya süpürge motorunu taşımak zorunda değilim ve sürekli toz torbasını değiştirmekle uğraşmıyorum. Benim için temizlik artık çok daha pratik ve hijyenik. İyi ki StarkMss kullanıyorum. Teşekkürler</p>
+                                        </blockquote>
+                                        <div class="testimonial-arrow-down"></div>
+                                        <div class="testimonial-author">
+                                            <div class="testimonial-author-thumbnail img-thumbnail">
+                                                <!--buraya kullanıcı resmi gelebilir örnek <img src="img/clients/client-1.jpg" alt=""> -->
+                                            </div>
+                                            <p><strong>Merve BALTACI</strong><span>Öğretmen</span></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+
+                            <div>
+                                <div class="col">
+                                    <div class="testimonial testimonial-primary">
+                                        <blockquote>
+                                            <p>Süpürge yapmak benim için eziyetti. Merkezi akıllı süpürge sistemine geçmek için bir sürü nedenim vardı ama en ağır basanı bel ağrılarımdı. Artık bir hortum ile evimin her köşesini tertemiz süpürüyor, aileme ve sevdiklerime daha fazla zaman ayırıyorum. Teşekkürler</p>
+                                        </blockquote>
+                                        <div class="testimonial-arrow-down"></div>
+                                        <div class="testimonial-author">
+                                            <div class="testimonial-author-thumbnail img-thumbnail">
+                                                <!--buraya kullanıcı resmi gelebilir-->
+                                            </div>
+                                            <p><strong>Ayşe BAYRAKTAR</strong><span>PAZARLAMACI</span></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div>
+                                <div class="col">
+                                    <div class="testimonial testimonial-primary">
+                                        <blockquote>
+                                            <p>Mesleki hayatımda her zaman hastalarıma kişisel temizliğin öneminden bahsederdim. Oysa ki kendi evimde kullandığım süpürgeden çıkan tozu bu yaşıma kadar hiç düşünmemiştim. Merkezi akıllı süpürge sistemi STARK evimin her köşesini temizliyor. Çocuğum artık daha sağlıklı ve geleceğe güvenle bakıyorum. Teşekkürler</p>
+                                        </blockquote>
+                                        <div class="testimonial-arrow-down"></div>
+                                        <div class="testimonial-author">
+                                            <div class="testimonial-author-thumbnail img-thumbnail">
+                                                <!--buraya kullanıcı resmi gelebilir-->
+                                            </div>
+                                            <p><strong>İpek URO</strong><span>Hemşire</span></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>

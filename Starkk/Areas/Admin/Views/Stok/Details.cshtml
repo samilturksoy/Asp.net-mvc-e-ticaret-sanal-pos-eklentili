@@ -1,0 +1,64 @@
+﻿@model Starkk.Models.Stok
+
+@{
+    ViewBag.Title = "Detaylar";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPageAdmin.cshtml";
+}
+<div class="container">
+
+
+    <h2>Detaylar</h2>
+
+    <div>
+        <h4>Stok</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.UrunAdi)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.UrunAdi)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Adet)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Adet)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.UrunKodu)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.UrunKodu)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Fiyatı)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Fiyatı)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Aciklama)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Aciklama)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Düzenle", "Edit", new { id = Model.Id }) |
+        @Html.ActionLink("Listeye Geri Dön", "Index")
+    </p>
+
+</div>
+

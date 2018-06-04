@@ -1,0 +1,64 @@
+﻿@model Starkk.Models.Stok
+
+@{
+    ViewBag.Title = "Sil";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPageAdmin.cshtml";
+}
+<div class="container">
+
+
+
+    <h2>Kalıcı olarak sil</h2>
+
+    <h3>Bu ürünü silmek istediğinizden eminmisiniz ?</h3>
+    <div>
+        <h4>Stok</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.UrunAdi)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.UrunAdi)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.UrunKodu)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.UrunKodu)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Fiyatı)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Fiyatı)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Aciklama)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Aciklama)
+            </dd>
+
+        </dl>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="Sil" class="btn btn-danger" /> |
+                @Html.ActionLink("Listeye Geri Dön", "Index")
+            </div>
+        }
+    </div>
+
+
+</div>

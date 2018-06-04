@@ -1,0 +1,326 @@
+﻿@model Starkk.Models.Sipari
+@{
+    ViewBag.Title = "Siparis Tamamla";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<form action="@ViewBag.PostUrl" id="frmBillingAddress" method="post">
+    <div class="container">
+
+        <div class="row">
+            <div class="col">
+                <hr class="tall mb-4">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-9">
+
+                <div class="accordion" id="accordion">
+                    <div class="card card-default">
+                        <div class="card-header">
+                            <h4 class="card-title m-0">
+                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                                    Teslimat Bilgileri
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseOne" class="collapse show">
+                            <div class="card-body">
+
+                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                <div class="form-row">
+                                    <div class="form-group col-lg-6">
+                                        <label>İsminiz</label>
+                                        @Html.EditorFor(model => model.Ad, new { htmlAttributes = new { @class = "form-control" } })
+                                    </div>
+                                    <div class="form-group col-lg-6">
+                                        <label>Soyisminiz</label>
+                                        @Html.EditorFor(model => model.Soyad, new { htmlAttributes = new { @class = "form-control" } })
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group col">
+                                        <label>Adres </label>
+                                        @Html.EditorFor(model => model.Adres, new { htmlAttributes = new { @class = "form-control" } })
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col">
+                                        <label>Telefon </label>
+                                        @Html.EditorFor(model => model.Telefon, new { htmlAttributes = new { @class = "form-control" } })
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col">
+                                        <label>Tc No </label>
+                                        @Html.EditorFor(model => model.TcKimlikNo, new { htmlAttributes = new { @class = "form-control" } })
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card card-default">
+                        <div class="card-header">
+                            <h4 class="card-title m-0">
+                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+                                    Ödeme
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseThree" class="collapse">
+                            @*<div class="card-body">
+                                    <table class="shop_table cart">
+                                        <thead>
+                                            <tr>
+                                                <th class="product-thumbnail">
+                                                    &nbsp;
+
+                                                </th>
+                                                <th class="product-name">
+                                                    Ürün
+                                                </th>
+                                                <th class="product-price">
+                                                    Fiyat
+                                                </th>
+                                                <th class="product-quantity">
+                                                    Adet
+                                                </th>
+                                                <th class="product-subtotal">
+                                                    Toplam
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr class="cart_table_item">
+                                                <td class="product-thumbnail">
+                                                    <a href="shop-product-sidebar.html">
+                                                        <img width="100" height="100" alt="" class="img-fluid" src="img/products/product-1.png">
+                                                    </a>
+                                                </td>
+                                                <td class="product-name">
+                                                    <a href="productsingle.html">Stark X2</a>
+                                                </td>
+                                                <td class="product-price">
+                                                    <span class="amount">299 TL</span>
+                                                </td>
+                                                <td class="product-quantity">
+                                                    1
+                                                </td>
+                                                <td class="product-subtotal">
+                                                    <span class="amount">299 TL</span>
+                                                </td>
+                                            </tr>
+                                            <tr class="cart_table_item">
+                                                <td class="product-thumbnail">
+                                                    <a href="shop-product-sidebar.html">
+                                                        <img width="100" height="100" alt="" class="img-fluid" src="img/products/genel.jpg">
+                                                    </a>
+                                                </td>
+                                                <td class="product-name">
+                                                    <a href="shop-product-sidebar.html">Standart Başlık</a>
+                                                </td>
+                                                <td class="product-price">
+                                                    <span class="amount">72 TL</span>
+                                                </td>
+                                                <td class="product-quantity">
+                                                    1
+                                                </td>
+                                                <td class="product-subtotal">
+                                                    <span class="amount">72 TL</span>
+                                                </td>
+                                            </tr>
+                                            <tr class="cart_table_item">
+                                                <td class="product-thumbnail">
+                                                    <a href="shop-product-sidebar.html">
+                                                        <img width="100" height="100" alt="" class="img-fluid" src="img/products/19.jpg">
+                                                    </a>
+                                                </td>
+                                                <td class="product-name">
+                                                    <a href="shop-product-sidebar.html">Hortum</a>
+                                                </td>
+                                                <td class="product-price">
+                                                    <span class="amount">60 TL</span>
+                                                </td>
+                                                <td class="product-quantity">
+                                                    1
+                                                </td>
+                                                <td class="product-subtotal">
+                                                    <span class="amount">60 TL</span>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+
+                                    <hr class="tall">
+
+                                    <h4 class="heading-primary">Toplam Tutar</h4>
+                                    <table class="cart-totals">
+                                        <tbody>
+
+                                            <tr class="cart-subtotal">
+                                                <th>
+                                                    <strong>Ürünlerin Toplamı</strong>
+                                                </th>
+                                                <td>
+                                                    <strong><span class="amount">@ViewBag.Amount TL</span></strong>
+                                                </td>
+                                            </tr>
+                                            <tr class="shipping">
+                                                <th>
+                                                    Kargo
+                                                </th>
+                                                <td>
+                                                    Ücretsiz Kargo<input type="hidden" value="free_shipping" id="shipping_method" name="shipping_method">
+                                                </td>
+                                            </tr>
+                                            <tr class="total">
+                                                <th>
+                                                    <strong>Toplam Tutar</strong>
+                                                </th>
+                                                <td>
+                                                    <strong><span class="amount">@ViewBag.Amount TL</span></strong>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+
+                                    <hr class="tall">
+
+                                    <h4 class="heading-primary">Ödeme</h4>
+
+                                    <form action="/" id="frmPayment" method="post">
+                                        <div class="form-row">
+                                            <div class="form-group col">
+                                                <div class="form-check form-check-inline">
+                                                    <label class="form-check-label">
+                                                        <input class="form-check-input" type="checkbox" checked="checked" id="" name=""> Online Kredi Kartı
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                    </form>
+                                </div>*@
+                            <div class="col-md-12">
+                                <div class="form-horizontal">
+
+
+                                    <div class="form-group">
+                                        <label class="control-label col-md-6" for="kartisimsoysisim">ADI SOYADI</label>
+                                        <div class="col-md-12">
+                                            <input autocomplete="off" name="kartisimsoysisim" type="text" class="form-control" maxlength="255" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-12" for="Ad">KREDİ KARTI NUMARASI</label>
+                                        <div class="col-md-12">
+                                            <input autocomplete="off" id="contact-email" class="form-control" name="pan" type="text" value="5571135571135575" />
+                                            <input type="hidden" name="clientid" value="@ViewBag.ClientId">
+                                            <input type="hidden" name="oid" value="@ViewBag.Oid">
+                                            <input type="hidden" name="okUrl" value="@ViewBag.okUrl">
+                                            <input type="hidden" name="failUrl" value="@ViewBag.failUrl">
+                                            <input type="hidden" name="islemtipi" value="@ViewBag.TransActionType">
+                                            <input type="hidden" name="rnd" value="@ViewBag.RDN">
+                                            <input type="hidden" id="hash" name="hash" value="@ViewBag.Hash">
+                                            <input type="hidden" name="storetype" value="@ViewBag.StoreType">
+                                            <input type="hidden" name="refreshtime" value="10">
+                                            <input type="hidden" name="lang" value="@ViewBag.Lang">
+                                            <input type="hidden" name="currency" value="949">
+                                            <input type="hidden" name="amount" value="@ViewBag.Amount" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-12" for="kartisimsoysisim">SON KULLANMA TARİHİ</label>
+                                        <div class="col-md-6">
+                                            <select class="form-control" style="float:left;width:75px;" name="Ecom_Payment_Card_ExpDate_Month">
+                                                <option value="01">01</option>
+                                                <option value="02">02</option>
+                                                <option value="03">03</option>
+                                                <option value="04">04</option>
+                                                <option value="05">05</option>
+                                                <option value="06">06</option>
+                                                <option value="07">07</option>
+                                                <option value="08">08</option>
+                                                <option value="09">09</option>
+                                                <option value="10">10</option>
+                                                <option value="11">11</option>
+                                                <option value="12" selected="selected">12</option>
+                                            </select>
+
+                                            <select class="form-control" style="float:left;width:75px;" name="Ecom_Payment_Card_ExpDate_Year">
+                                                <option value="17">17</option>
+                                                <option value="18" selected="selected">18</option>
+                                                <option value="19">19</option>
+                                                <option value="20">20</option>
+                                                <option value="21">21</option>
+                                                <option value="22">22</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-12" for="CVC">CVC</label>
+                                        <div class="col-md-12">
+                                            <input autocomplete="off" id="contact-phone" class="form-control" name="cvCode" type="text" value="000" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-md-offset-2 col-md-12">
+                                            <input type="submit" value="Güvenli Ödeme" name="proceed" class="btn btn-lg btn-primary mt-5 mb-5 mb-lg-0">
+                                            <p>
+                                                Kart 3D Secure Şifresi : a
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+            <div class="col-lg-3">
+                <h4 class="heading-primary">Sepet Toplam</h4>
+                <table class="cart-totals">
+                    <tbody>
+                        <tr class="cart-subtotal">
+                            <th>
+                                <strong>Ürünlerin Toplamı</strong>
+                            </th>
+                            <td>
+                                <strong><span class="amount">@ViewBag.Amount TL</span></strong>
+                            </td>
+                        </tr>
+                        <tr class="shipping">
+                            <th>
+                                Kargo
+                            </th>
+                            <td>
+                                Ücretsiz Kargo<input type="hidden" value="free_shipping" id="shipping_method" name="shipping_method">
+                            </td>
+                        </tr>
+                        <tr class="total">
+                            <th>
+                                <strong>Toplam Tutar</strong>
+                            </th>
+                            <td>
+                                <strong><span class="amount">@ViewBag.Amount TL</span></strong>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+
+
+
+    </div>
+
+</form>

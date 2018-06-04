@@ -1,0 +1,98 @@
+﻿@model IEnumerable<Starkk.Models.Sipari>
+@{
+    ViewBag.Title = "Yeni Sipariş Listesi";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPageAdmin.cshtml";
+}
+
+
+
+
+<section class="content">
+    <div class="box box-primary">
+        <div class="box-body" style="">
+           
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="box">
+                        <div class="box-header">
+                            <h2 class="box-title">Sipariş</h2>
+
+                        </div>
+                        <div class="box-body">
+                            <table id="example1" class="table table-bordered table-striped">
+                                <thead>
+                                    <tr>
+                                        <th> Ad Soyad</th>
+                                        <th> Tarih </th>
+                                        <th> Tc Kimlik No </th>
+                                        <th>   Telefon </th>
+                                        <th> İşlem</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                    <tr>
+
+                                        <td>
+
+                                            @Html.DisplayFor(modelItem => item.Ad)   @Html.DisplayFor(modelItem => item.Soyad)
+
+                                        </td>
+                                        <td>
+
+                                            @Html.DisplayFor(modelItem => item.Tarih)
+
+                                        </td>
+                                        <td>
+
+                                            @Html.DisplayFor(modelItem => item.TcKimlikNo)
+
+                                        </td>
+                                        <td>
+
+                                            @Html.DisplayFor(modelItem => item.Telefon)
+
+                                        </td>
+                                        <td>
+                                           
+                                            @Html.ActionLink("Detaylar", "Detay", new { id = item.Id }) 
+                                         
+                                        </td>
+                                    </tr>
+                                    }
+                                </tbody>
+
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+
+    </div>
+
+
+
+</section>
+
+@section scripts{
+
+
+    <script>
+  $(function () {
+    $('#example1').DataTable()
+    $('#example2').DataTable({
+      'paging'      : true,
+      'lengthChange': false,
+      'searching'   : false,
+      'ordering'    : true,
+      'info'        : true,
+      'autoWidth'   : false
+    })
+  })
+    </script>
+}

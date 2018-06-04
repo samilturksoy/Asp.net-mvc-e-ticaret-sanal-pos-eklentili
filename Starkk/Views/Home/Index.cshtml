@@ -1,0 +1,167 @@
+﻿@model IEnumerable<Starkk.Models.Slider>
+@{
+    ViewBag.Title = "ANASAYFA ";
+}
+
+
+<!--*-*-*-*-*-*-*-*-*-*- CAROUSEL *-*-*-*-*-*-*-*-*-*-->
+<div class="slider-container rev_slider_wrapper">
+    <div id="revolutionSlider" class="slider rev_slider" data-plugin-revolution-slider data-plugin-options="{'delay': 5000, 'gridwidth': 1348, 'gridheight': 500, 'disableProgressBar': 'on', 'responsiveLevels': [4096,1200,992,500]}">
+        <ul>
+            @foreach (var item in Model)
+            {
+                string imageBase64 = Convert.ToBase64String(item.Resim);
+                string imageSrc = string.Format("data:image/gif;base64,{0}", imageBase64);
+
+                <li data-transition="fade">
+                    <img src="@imageSrc"
+                         alt="stark merkezi süpürge sistemi slider resmi 1"
+                         data-bgposition="center center"
+                         data-bgfit="cover"
+                         data-bgrepeat="no-repeat"
+                         class="rev-slidebg">
+                </li>
+            }
+
+
+
+
+
+        </ul>
+    </div>
+</div>
+<!--*-*-*-*-*-*-*-*-*-*- END CAROUSEL *-*-*-*-*-*-*-*-*-*-->
+<!--home intro başlangıç-->
+<div class="home-intro light" id="home-intro">
+    <div class="container">
+
+        <div class="row align-items-center">
+            <div class="col-lg-8">
+                <p>
+                    Merkezi Akıllı Süpürge Sistemi <em>STARK</em>
+                    <span>Sevdiklerinin geleceğini düşünenlere...</span>
+                </p>
+            </div>
+            <div class="col-lg-4">
+                <div class="get-started text-left text-lg-right">
+                    <a href="@Url.Action("Index", "Urunler")" class="btn btn-lg btn-primary">Şimdi Satın Al!</a>
+                    <div class="learn-more">Ürünlerimiz <a href="@Url.Action("Index", "Home")">CE Sertifikalıdır.</a></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!--home intro bitiş-->
+
+<div class="container">
+
+    <div class="row text-center">
+        <div class="col">
+            <h1 class="mb-2 word-rotator-title">
+                STARK
+                <strong class="inverted">
+                    <span class="word-rotator" data-plugin-options="{'delay': 2000, 'animDelay': 300}">
+                        <span class="word-rotator-items">
+                            <span>Sevdiklerinizin</span>
+
+                            <span>Çocuklarınızın&nbsp;</span>
+                        </span>
+                    </span>
+                </strong>
+                sağlığını korumanıza yardımcı olur.
+            </h1>
+            <p class="lead justify-content-center">
+                Merkezi akıllı süpürge sistemleri, taşınabilir elektrikli süpürgeler gibi sizi güç ünitesini ve toz haznesini yanınızda taşımak zorunda bırakmaz. Taşınabilir  elektrikli süpürgenin yaydığı gürültüden ve haznesinden çıkan toz zerrelerinden korunmuş olur, sağlığınızı olumsuz etkileyen durumlardan uzakta kalırsınız.
+            </p>
+        </div>
+    </div>
+
+</div>
+
+<!--stark çalışma sistemi başlangıç-->
+<div class="home-concept mt-5">
+    <div class="container">
+
+        <div class="row text-center">
+            <span class="sun"></span>
+            <span class="cloud"></span>
+            <div class="col-lg-2 ml-lg-auto">
+                <div class="process-image">
+                    <img src="~/Content/img/home-concept-item-1.png" alt="stark merkezi süpürge sistemi nasıl çalışır" />
+                    <strong>STARK</strong>
+                </div>
+            </div>
+            <div class="col-lg-2">
+                <div class="process-image">
+                    <img src="~/Content/img/home-concept-item-2.png" alt="stark merkezi süpürge sistemi planlama" />
+                    <strong>Planlama</strong>
+                </div>
+            </div>
+            <div class="col-lg-2">
+                <div class="process-image">
+                    <img src="~/Content/img/resim1.jpg" alt="stark merkezi süpürge sistemi kurulum" />
+                    <strong>Kurulum</strong>
+                </div>
+            </div>
+            <div class="col-lg-4 ml-lg-auto">
+                <div class="project-image">
+                    <div id="fcSlideshow" class="fc-slideshow">
+                        <ul class="fc-slides">
+                            <li><a href="#"><img class="img-responsive" src="~/Content/img/projects/project-home-1.png" alt="stark merkezi süpürge sistemi 1" /></a></li>
+                            <li><a href="#"><img class="img-responsive" src="~/Content/img/projects/project-home-2.png" alt="stark merkezi süpürge sistemi 2" /></a></li>
+                            <li><a href="#"><img class="img-responsive" src="~/Content/img/projects/project-home-3.png" alt="stark merkezi süpürge sistemi 3" /></a></li>
+                        </ul>
+                    </div>
+                    <strong class="our-work">Sağlıklı Hayat</strong>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!--stark merkezi süpürge sistemi bitiş-->
+
+
+<div class="container">
+
+    <div class="row">
+        <div class="col">
+            <hr class="tall mt-4">
+        </div>
+    </div>
+
+
+
+
+
+    <div class="row text-center pt-4">
+        <div class="col">
+            <h2 class="mb-2 word-rotator-title">
+                STARK sayesinde
+                <strong>
+                    <span class="word-rotator" data-plugin-options="{'delay': 3500, 'animDelay': 400}">
+                        <span class="word-rotator-items">
+                            <span>mutlu &nbsp;</span>
+                            <span>sağlıklı</span>
+                        </span>
+                    </span>
+                </strong>
+                kullanıcılar dünyanın heryerinde.
+            </h2>
+            <h4 class="heading-primary lead tall">25,000 kullanıcı 100 farklı ülkede STARK kullanıyor. Hemen siz de kullanın.</h4>
+        </div>
+    </div>
+
+
+
+</div>
+
+
+<!--blog ve kullanıcı yorumları başlangıç-->
+
+
+@Html.Action("AnasayfaBlogYaziGetir", "Blog")
+
+
+<!--blog ve kullanıcı yorumları bitiş.-->

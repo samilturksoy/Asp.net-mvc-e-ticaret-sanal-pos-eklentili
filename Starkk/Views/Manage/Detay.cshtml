@@ -1,0 +1,75 @@
+﻿@model IEnumerable<Starkk.Models.SiparisKalem>
+@{
+    ViewBag.Title = "Detay";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container">
+
+    <p>
+        @Html.ActionLink("Listeye Geri Dön", "Index")
+    </p>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>
+                    #
+                </th>
+                <th>
+                    Adet
+                </th>
+
+                <th>
+                    Ürün Adı
+                </th>
+                <th>
+                    Fiyat
+                </th>
+                <th>
+                    Toplam Tutar
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+
+                    <td>
+
+                        @Html.DisplayFor(modelItem => item.Id)
+
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Adet)
+
+
+                    </td>
+                    <td>
+
+                        @Html.DisplayFor(modelItem => item.Urunler.UrunAdi)
+
+                    </td>
+                    <td>
+
+                        @Html.DisplayFor(modelItem => item.Urunler.Fiyat)
+
+                    </td>
+
+
+                    <td>
+
+
+                        @Html.DisplayFor(modelItem => item.ToplamTutar)
+                        
+                    </td>
+                    
+                </tr>
+
+            }
+            
+        </tbody>
+    </table>
+
+
+</div>
+
